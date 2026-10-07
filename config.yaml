@@ -1,0 +1,35 @@
+# Shared run configuration. Each workstream reads its own section; add keys only
+# inside your own section to avoid merge conflicts.
+
+paths:
+  data_dir: data            # git-ignored; raw + processed dataset
+  index_dir: data/index     # git-ignored; persisted index
+  results_dir: results      # git-ignored; one folder per run
+  toy_corpus: tests/fixtures/toy_corpus
+
+seed: 13
+
+dataset:
+  # IL-PCSR only (DECISIONS D1). Local copy, five parquet files; never committed (data/ is git-ignored).
+  name: ilpcsr
+  local_dir: data/ilpcsr
+  # One shared precedent pool for all splits (DECISIONS D1): every query is ranked against
+  # the full pool minus its own id.
+  eval_pool: shared
+
+ws1:
+  positional_zones: [facts, issues]
+  stemmer: porter
+
+ws2:
+  kgram_k: 3
+
+ws3:
+  bm25: {k1: 1.2, b: 0.75}
+  rrf_k: 60
+  netscore_trials: 200
+  court_prior: {SC: 1.0, HC: 0.6, OTHER: 0.3}
+
+ws4:
+  ks: [5, 10, 20]
+  bootstrap_resamples: 1000

@@ -1,0 +1,6 @@
+# WS1: data, preprocessing, index
+numpy>=1.26
+pandas>=2.0
+pyarrow>=14
+nltk>=3.8             # Porter stemmer only (no data downloads)
+psutil>=5.9           # memory report in scripts/build_index.py

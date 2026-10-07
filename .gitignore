@@ -1,0 +1,34 @@
+# data and outputs are never committed
+/data/
+*.ipynb
+.ipynb_checkpoints/
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+# editors / os
+.vscode/
+.idea/
+.DS_Store
+# secrets (D41: the Sarvam key lives in the shell environment only; .env.example is the template and has no value)
+.env
+.env.*
+!.env.example
+reference/
+# Phase E: local app database, session secret, demo credentials live in data/ (already ignored)
+
+# all UI screenshots from QA runs (the curated set lives in docs/figures/ui/)
+docs/figures/ui_all/
+
+# results/ ships with the project (aggregates only, see docs/results_scan.md); ignore only regenerable or large artefacts inside it
+results/**/*.npz
+results/**/*.npy
+results/**/*.pkl
+results/**/*.parquet
+results/**/*.db
+CLAUDE.md

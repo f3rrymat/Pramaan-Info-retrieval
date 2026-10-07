@@ -1,0 +1,6 @@
+# Do not add packages here. Add them to your workstream's file.
+-r requirements/base.txt
+-r requirements/ws1.txt
+-r requirements/ws2.txt
+-r requirements/ws3.txt
+-r requirements/ws4.txt

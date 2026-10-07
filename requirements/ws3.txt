@@ -1,0 +1,2 @@
+# WS3: ranking, fusion, explanations
+scipy>=1.11           # sparse batch cosines (zone-pair features)

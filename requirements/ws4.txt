@@ -1,0 +1,2 @@
+# WS4: evaluation, efficiency, release assets
+matplotlib>=3.8
