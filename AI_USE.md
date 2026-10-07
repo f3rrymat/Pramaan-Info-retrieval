@@ -1,0 +1,52 @@
+# AI use declaration
+
+This project was planned, designed and carried out by our team. We used large language models as assistants for parts of the work, mainly drafting and scaffolding code, documentation and tests. Design decisions, method choices, review, debugging, testing and final integration stayed with us. This file records which tools we used, where, and how.
+
+Keep this file current. One row per meaningful use: tool, files, how it helped, and what the team did with it.
+
+## Tools used
+
+| Tool | Where we used it |
+|---|---|
+| Claude (Opus 5.5) in claude.ai | Planning and project setup: checking our master spec against the IL-TUR dataset card and drafting the repository skeleton |
+| Claude Code (Sonnet 5.5) | Implementation support across Phases A to D and G: drafting code to our module specs and tests |
+| Claude in a cloud agent session (configured model `claude-opus-5-5`) | Phase F: help with the AI assistant feature, front-end polish, README research sections and QA scripts |
+| Fraunces font (SIL OFL 1.1) | Self-hosted display typeface (not an AI tool; listed for licence completeness) |
+
+## Usage log
+
+| Date | Tool | Files | How it helped | What the team did | Reviewed by |
+|---|---|---|---|---|---|
+| 2026-10-06 | Claude (Opus 5.5) in claude.ai | Phase 0 scaffold: `src/irlegal/common/*`, module stubs, `app/*`, `tests/*`, `tests/fixtures/toy_corpus/*`, `make/*`, `requirements/*`, `docs/SPEC_CHANGES.md`, `docs/data_notes.md`, README | Helped us cross-check our master spec against the IL-TUR dataset card and draft the repository skeleton, interface contracts, a fictional toy corpus, Index/Ranker stubs, a FastAPI shell and contract tests. No IR algorithms were written at this stage. | We wrote the spec, decided the architecture and the frozen contracts, and reviewed and adjusted the generated scaffold before building on it. | PLACEHOLDER (architect) |
+| 2026-10-06 | Claude Code (Sonnet 5.5) | Phase A: `scripts/inspect_data.py`, `scripts/build_index.py`, `src/irlegal/{data,preprocess,index}/*`, `ranking/{baselines,vsm,bm25}.py`, `evaluation/{metrics,runner}.py`, `tests/ws1/*`, `tests/ws4/test_metrics.py`, `docs/data_notes.md` | Assisted with drafting the loader, query builder and citation scrubber, tokenizer, zone index (gap and variable-byte compression, skip pointers), baseline rankers, metrics and the dev runner. Nothing from the earlier prototype `reference/stare-ir` was used at this stage (the folder was not present). | We set the requirements, ran the code on the data, debugged and corrected issues, checked metric outputs, and kept the tests passing. | PLACEHOLDER |
+| 2026-10-06 | Claude Code (Sonnet 5.5) | Phase B1: `query/statutes.py`, `ranking/zonepair.py`, `scripts/run_b1.py`, `scripts/tune_bm25.py`, `scripts/profile_roles.py`, `evaluation/statute_eval.py`, `tests/ws2/test_statutes.py`, `tests/ws3/test_zonepair.py` | Assisted with the statute normaliser and statute bridge, zone-pair features with a coordinate-ascent learner, the BM25 tuning grid and the role profile for "Court Disclosure". | We chose the features and the tuning setup, ran the experiments, compared results against baselines and decided what to keep. | PLACEHOLDER |
+| 2026-10-06 | Claude Code (Sonnet 5.5) | Phase B2: `ranking/{authority,neighbours,netscore,explain}.py`, `scripts/run_b2.py`, `scripts/run_w_variant.py`, `tests/ws3/test_b2.py` | Assisted with leave-one-out authority, the citing-case neighbour feature (N7), net-score random search with 5-fold CV, explanations and a regularised zone-pair variant. | We designed the ranking signals, validated them (including leakage concerns), ran the cross-validation and interpreted the results. | PLACEHOLDER |
+| 2026-10-06 | Claude Code (Sonnet 5.5) | Phase C: `ranking/pipeline.py`, `evaluation/{runner,leakage,metrics}.py`, `efficiency/*`, `scripts/{freeze_config_a,run_efficiency,make_report_assets}.py`, `scripts/package_handoff.sh`, `app/routers/{ws1_index,ws3_search,ws4_eval,_state}.py`, panels `results.js evaluation.js efficiency.js index_inspector.js`, `app/web/vendor/viz.js`, `docs/STATUS.md` | Assisted with the evaluation harness (bootstrap), leakage audit, efficiency study, API routers, UI panels, report figures and handoff packaging. | We froze the configuration, ran the single test evaluation, reviewed the leakage audit and efficiency findings, and checked the figures before using them. | PLACEHOLDER |
+| 2026-10-06 | Claude Code (Sonnet 5.5) | Phase D: `query/{parser,boolean,tolerant,decompose}.py`, `crawl/*`, `app/routers/ws2_query.py`, `app/web/panels/{query_lab,how_it_works}.js`, `app/server.py`, `app/web/{index.html,app.js,styles.css}`, `scripts/{make_readme,bench_and,run_crawl_sim,run_decompose}.py`, `README.md`, `docs/ws*.md`, `tests/ws2/*` | Assisted with the query language and evaluator, tolerant retrieval, crawl simulation, issue decomposition, shell banner and mode report, and README assembly. | We specified the query grammar and the behaviours we wanted, tested edge cases, and revised the code and documentation. | PLACEHOLDER |
+| 2026-10-07 | Claude, in a cloud agent session (configured model `claude-opus-5-5`) | Phase F: `app/assistant/*`, `app/routers/assistant_router.py`, `app/routers/ws3_search.py` (stage timings only), `app/routers/extras.py` (About section aliases), `app/server.py` (CSP and security headers), `app/web/index.html`, `app/web/ui/{boot,motion,pipeline,api,dom,store,shell,main,components,charts,casedrawer,icons,router}.js`, `app/web/ui/assistant/*`, `app/web/ui/pages/{assistant,search,library,evaluation,efficiency,settings}.js`, `app/web/styles/{motion,assistant}.css`, `scripts/{make_readme,assistant_qa,assistant_smoke,motion_qa}.py`, small fixes in `scripts/{ui_qa,ui_matrix}.py` and `scripts/package_handoff.sh`, `docs/research_notes.md`, `docs/STATUS.md`, `README.md`, `.env.example`, `.gitignore`, `tests/app/{test_assistant,test_phase_f_static}.py` | AI-assisted drafting of the Sarvam AI assistant (server-side calls, facts sheet, voice input and spoken replies), the README research sections, front-end polish (FLIP re-ranking, chart draw-in and linked hover, pipeline strip, graph physics, fuzzy palette, undo toasts, reduce-motion switch), mocked tests and Playwright QA. | We decided which features to build and what data may leave the server, read Sarvam's current API documentation (2026-10-07), checked the RE-CHECK references against their source pages where reachable, and reviewed the privacy and security behaviour. No real Sarvam call was made (no key in the session). | PLACEHOLDER |
+| 2026-10-07 | Claude Code (Sonnet 5.5) | `app/web` (landing, search, evaluation, compare, efficiency, index inspector, how it works, shell), `app/routers/public_extra.py`, `scripts/make_readme.py`, `tests/app`, `docs/` | Phase G interface pass: assisted with new pages and components, additive read-only endpoints, README generator order and QA scripts. | We directed the design of the interface, reviewed and tested the pages, and adjusted the content. | PLACEHOLDER |
+| 2026-10-07 | Fraunces font (SIL OFL 1.1) | `app/web/fonts/` | Self-hosted display face, licence file included (not an AI tool). | We selected the font and added it with its licence. | PLACEHOLDER |
+
+## Earlier prototype (`reference/stare-ir`)
+
+`reference/stare-ir` holds the prototype and sample code we wrote before this repository (with some help from a Claude session). It is kept read-only for reference. Where an idea from it appears here, the code was rewritten for this codebase rather than copied across (D29).
+
+| Our file | Idea reused from the prototype | What is new here |
+|---|---|---|
+| `query/parser.py`, `query/boolean.py` | Operator set and grammar shape (AND, OR, NOT, implicit AND, phrase, `/k` and `pre/k` proximity, `field:value`), AND in increasing document-frequency order, positional phrase check with offsets, proximity by sorted-position search | New AST dataclasses, our `Index` Protocol and zone names, zones without positions fall back with a trace message, positions only for facts and issues, comparison counting, `court:` uses the mapped SC/HC/OTHER level, no `statute:` or `title:` fields, own tests |
+| `query/tolerant.py` | Soundex plus edit distance for party-name variants | 3-gram wildcard index, spelling suggestions from k-gram candidates, standard American Soundex, none of the title-index code |
+| `crawl/frontier.py`, `crawl/normalize_url.py`, `crawl/dedupe.py`, `crawl/simulate.py` | Front queues by priority, back queues per host with a heap of next-allowed times, URL normalisation, shingle Jaccard | Politeness memory per host that survives back-queue retirement, priority from in-links discovered so far, citation graph with courts as hosts, bottom-m sketch index, no trap guard, no network code |
+| `reference/stare-ir` `roles.py` mapping | Not reused (its `role_to_zone` leaves "Conclusion" in `other`; here we map it to decision per DECISIONS section 2) | |
+
+## The AI assistant feature calls a third-party service (Sarvam AI)
+
+The in-app **AI assistant (Sarvam)** is an AI feature of the product, separate from the AI tools we used while building it. It is off unless the server has `SARVAM_API_KEY` in its environment.
+
+| What | Detail |
+|---|---|
+| Sent to Sarvam AI (after a one-time consent click, remembered in the browser) | The user's typed question or recorded audio (WAV, at most 30 s); the recent turns of the conversation, kept in the browser tab only; a facts sheet built on the server from whitelisted `results/*.json` (numbers only) and sections of `README.md`, `docs/STATUS.md`, `docs/research_notes.md`; for "Explain" requests: ids, courts, years, scores, score components and citing train-case ids; reply text when it is read aloud |
+| Never sent | Case text, case titles, snippets (even with `SHOW_TEXT=1`), text pasted into the Search box, passwords, session cookies, the key itself to the browser |
+| Where | `app/assistant/` and `app/routers/assistant_router.py` (server side only; the browser's Content-Security-Policy allows connections to this server only) |
+| Checks | `tests/app/test_assistant.py` asserts on every outbound payload that no case text or title is present and that the key never appears in a response or a log line (Sarvam mocked) |
+| Honesty | Labelled "AI assistant (Sarvam)"; says it is not legal advice in its first message; told to use only numbers from the facts sheet and to say when it does not have one |
+| Reviewed by | By entire team |
