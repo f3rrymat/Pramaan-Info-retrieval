@@ -1,0 +1,16 @@
+{
+ "input_order": {
+  "comparisons": 1399590,
+  "intersections": 856,
+  "total_hits": 76952,
+  "seconds": 0.1492
+ },
+ "df_order": {
+  "comparisons": 1218408,
+  "intersections": 819,
+  "total_hits": 76952,
+  "seconds": 0.1306
+ },
+ "queries": 300,
+ "note": "comparisons are counted by the skip-pointer merge; seconds are wall time on this machine; pool = 3183 docs"
+}
