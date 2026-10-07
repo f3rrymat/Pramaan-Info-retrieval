@@ -1,0 +1,25 @@
+{
+ "run_id": "eval_test_20261006_163314",
+ "split": "test",
+ "final": true,
+ "n_queries": 626,
+ "candidates": "pool (3183) minus own id",
+ "query": "Facts+Issues (scrubbed); REFERENCE rows use the full judgment",
+ "seed": 13,
+ "config_a": {
+  "text": 0.35444,
+  "neighbour": 0.48788,
+  "authority": 0.15768
+ },
+ "bm25": {
+  "k1": 12.0,
+  "b": 1.0,
+  "qtf": "raw"
+ },
+ "neighbour": {
+  "k": 20,
+  "p": 4.0
+ },
+ "bootstrap_resamples": 1000,
+ "seconds": 14.7
+}
