@@ -1,0 +1,47 @@
+{
+ "coverage": {
+  "pool_docs": 3183,
+  "docs_with_annotation": 2087,
+  "docs_with_normaliser_tokens": 2686,
+  "docs_with_either": 2762,
+  "docs_with_both_agree_overlap": 1722,
+  "provisions_total": 936,
+  "provisions_with_token": 906,
+  "provisions_in_some_doc_set": 781,
+  "mean_provisions_per_doc": 4.166
+ },
+ "prediction_recall_dev": {
+  "provision_text_only": {
+   "Recall@3": 0.0856,
+   "Recall@5": 0.1088,
+   "Recall@10": 0.146,
+   "n_queries": 612
+  },
+  "text_plus_pool_doc_profiles": {
+   "Recall@3": 0.2406,
+   "Recall@5": 0.2999,
+   "Recall@10": 0.3927,
+   "n_queries": 612
+  }
+ },
+ "m_choices": {
+  "3": {
+   "beta_tfidf": 0.05,
+   "beta_W": 0.05,
+   "dev_MAP_tfidf_channel": 0.12362073870673444,
+   "dev_MAP_W_channel": 0.12362073870673444
+  },
+  "5": {
+   "beta_tfidf": 0.1,
+   "beta_W": 0.1,
+   "dev_MAP_tfidf_channel": 0.12340831248903839,
+   "dev_MAP_W_channel": 0.12340831248903839
+  },
+  "10": {
+   "beta_tfidf": 0.2,
+   "beta_W": 0.2,
+   "dev_MAP_tfidf_channel": 0.1225868050280204,
+   "dev_MAP_W_channel": 0.1225868050280204
+  }
+ }
+}
