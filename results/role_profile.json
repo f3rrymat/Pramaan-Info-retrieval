@@ -1,0 +1,78 @@
+{
+ "queries(train)": {
+  "Court Reasoning": {
+   "paragraphs": 28606,
+   "mean_rel_position": 0.526,
+   "share_last_10pct": 0.076,
+   "mean_words": 119.2
+  },
+  "Conclusion": {
+   "paragraphs": 24845,
+   "mean_rel_position": 0.853,
+   "share_last_10pct": 0.522,
+   "mean_words": 41.6
+  },
+  "Precedent Analysis": {
+   "paragraphs": 58766,
+   "mean_rel_position": 0.589,
+   "share_last_10pct": 0.074,
+   "mean_words": 85.0
+  },
+  "Statute Analysis": {
+   "paragraphs": 27190,
+   "mean_rel_position": 0.489,
+   "share_last_10pct": 0.041,
+   "mean_words": 75.5
+  },
+  "Facts": {
+   "paragraphs": 14731,
+   "mean_rel_position": 0.181,
+   "share_last_10pct": 0.004,
+   "mean_words": 121.3
+  }
+ },
+ "pool": {
+  "Court Disclosure": {
+   "paragraphs": 30317,
+   "mean_rel_position": 0.564,
+   "share_last_10pct": 0.112,
+   "mean_words": 167.3
+  },
+  "Conclusion": {
+   "paragraphs": 19906,
+   "mean_rel_position": 0.826,
+   "share_last_10pct": 0.465,
+   "mean_words": 56.9
+  },
+  "Precedent Analysis": {
+   "paragraphs": 69537,
+   "mean_rel_position": 0.568,
+   "share_last_10pct": 0.092,
+   "mean_words": 105.4
+  },
+  "Statute Analysis": {
+   "paragraphs": 46306,
+   "mean_rel_position": 0.479,
+   "share_last_10pct": 0.056,
+   "mean_words": 107.0
+  },
+  "Facts": {
+   "paragraphs": 12201,
+   "mean_rel_position": 0.226,
+   "share_last_10pct": 0.008,
+   "mean_words": 153.3
+  }
+ },
+ "vocab_cosine_CourtDisclosure_vs": {
+  "query Court Reasoning": 0.925,
+  "query Conclusion": 0.773,
+  "query Precedent Analysis": 0.888,
+  "pool Conclusion": 0.872
+ },
+ "D12_rule_result": {
+  "position_gap": 0.038,
+  "share_last_10pct": 0.112,
+  "maps_to": "reasoning"
+ },
+ "note_stripped": "The two distinctive_stems lists were removed before shipping: they are stems taken from case text and can contain party names. Regenerate with scripts/profile_roles.py on a machine that has the data."
+}

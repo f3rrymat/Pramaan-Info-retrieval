@@ -1,0 +1,487 @@
+{
+ "rows": {
+  "train_queries": 5017,
+  "dev_queries": 627,
+  "test_queries": 627,
+  "precedent_candidates": 3183,
+  "statute_candidates": 936
+ },
+ "columns": {
+  "train_queries": [
+   "id",
+   "case_title",
+   "date",
+   "jurisdiction",
+   "text",
+   "rhetorical_roles",
+   "relevant_statutes",
+   "relevant_statute_ids",
+   "relevant_precedents",
+   "relevant_precedent_ids"
+  ],
+  "dev_queries": [
+   "id",
+   "case_title",
+   "date",
+   "jurisdiction",
+   "text",
+   "rhetorical_roles",
+   "relevant_statutes",
+   "relevant_statute_ids",
+   "relevant_precedents",
+   "relevant_precedent_ids"
+  ],
+  "test_queries": [
+   "id",
+   "case_title",
+   "date",
+   "jurisdiction",
+   "text",
+   "rhetorical_roles",
+   "relevant_statutes",
+   "relevant_statute_ids",
+   "relevant_precedents",
+   "relevant_precedent_ids"
+  ],
+  "precedent_candidates": [
+   "id",
+   "case_title",
+   "date",
+   "jurisdiction",
+   "text",
+   "rhetorical_roles",
+   "relevant_statutes",
+   "relevant_statute_ids",
+   "relevant_precedents",
+   "relevant_precedent_ids"
+  ],
+  "statute_candidates": [
+   "id",
+   "provision_name",
+   "text"
+  ]
+ },
+ "duplicate_ids": {
+  "train_queries": 0,
+  "dev_queries": 0,
+  "test_queries": 0,
+  "precedent_candidates": 0,
+  "statute_candidates": 0
+ },
+ "len_text_ne_len_roles_rows": {
+  "train_queries": 0,
+  "dev_queries": 0,
+  "test_queries": 0,
+  "precedent_candidates": 0
+ },
+ "missing_title": {
+  "train_queries": 330,
+  "dev_queries": 41,
+  "test_queries": 35,
+  "precedent_candidates": 383
+ },
+ "missing_date_raw": {
+  "train_queries": 265,
+  "dev_queries": 36,
+  "test_queries": 33,
+  "precedent_candidates": 384
+ },
+ "date_parse_share": {
+  "train_queries": 0.9434,
+  "dev_queries": 0.933,
+  "test_queries": 0.9378,
+  "precedent_candidates": 0.868
+ },
+ "unparseable_date_shapes": {
+  "train_queries": {
+   "": 265,
+   "9999": 19
+  },
+  "dev_queries": {
+   "": 36,
+   "9999": 6
+  },
+  "test_queries": {
+   "": 33,
+   "9999": 6
+  },
+  "precedent_candidates": {
+   "": 384,
+   "9999": 36
+  }
+ },
+ "distinct_jurisdictions": {
+  "train_queries": 28,
+  "dev_queries": 27,
+  "test_queries": 26,
+  "precedent_candidates": 17
+ },
+ "missing_jurisdiction": {
+  "train_queries": 0,
+  "dev_queries": 0,
+  "test_queries": 0,
+  "precedent_candidates": 0
+ },
+ "top_jurisdictions_train": {
+  "Delhi District Court": 638,
+  "Delhi High Court": 622,
+  "Punjab-Haryana High Court": 531,
+  "Gujarat High Court": 348,
+  "Supreme Court of India": 336
+ },
+ "pool_jurisdictions": {
+  "Supreme Court of India": 2839,
+  "Delhi High Court": 111,
+  "Bombay High Court": 56,
+  "Punjab-Haryana High Court": 40,
+  "Allahabad High Court": 30,
+  "Kerala High Court": 29,
+  "Calcutta High Court": 16,
+  "Karnataka High Court": 13,
+  "Gujarat High Court": 11,
+  "Andhra High Court": 9,
+  "Rajasthan High Court": 9,
+  "Madhya Pradesh High Court": 7,
+  "Patna High Court": 6,
+  "Gauhati High Court": 3,
+  "Madras High Court": 2,
+  "Jammu & Kashmir High Court - Srinagar Bench": 1,
+  "Rajasthan High Court - Jodhpur": 1
+ },
+ "court_mapping_share_pool": {
+  "SC": 0.8919,
+  "HC": 0.1081
+ },
+ "role_counts": {
+  "train_queries": {
+   "Precedent Analysis": 58766,
+   "Court Reasoning": 28606,
+   "Statute Analysis": 27190,
+   "Conclusion": 24845,
+   "Issue": 19379,
+   "Facts": 14731,
+   "Argument by Petitioner": 13250,
+   "Argument by Respondent": 8838,
+   "NONE": 663
+  },
+  "dev_queries": {
+   "Precedent Analysis": 8033,
+   "Statute Analysis": 3897,
+   "Court Reasoning": 3718,
+   "Conclusion": 3341,
+   "Issue": 2468,
+   "Facts": 2027,
+   "Argument by Petitioner": 1878,
+   "Argument by Respondent": 1325,
+   "NONE": 77
+  },
+  "test_queries": {
+   "Precedent Analysis": 7368,
+   "Statute Analysis": 3857,
+   "Court Reasoning": 3672,
+   "Conclusion": 2995,
+   "Issue": 2461,
+   "Facts": 1950,
+   "Argument by Petitioner": 1658,
+   "Argument by Respondent": 1118,
+   "NONE": 88
+  },
+  "precedent_candidates": {
+   "Precedent Analysis": 69537,
+   "Statute Analysis": 46306,
+   "Court Disclosure": 30317,
+   "Conclusion": 19906,
+   "Issue": 17950,
+   "Facts": 12201,
+   "Argument by Petitioner": 8055,
+   "Argument by Respondent": 5704,
+   "NONE": 3183
+  }
+ },
+ "unknown_role_labels": {},
+ "paragraphs_per_doc[train_queries]": {
+  "mean": 39.12,
+  "median": 32.0,
+  "max": 282
+ },
+ "whitespace_tokens_per_doc[train_queries]": {
+  "mean": 3351.33,
+  "median": 2866.0,
+  "max": 10010
+ },
+ "paragraphs_per_doc[dev_queries]": {
+  "mean": 42.69,
+  "median": 35.0,
+  "max": 230
+ },
+ "whitespace_tokens_per_doc[dev_queries]": {
+  "mean": 3598.93,
+  "median": 3159.0,
+  "max": 9747
+ },
+ "paragraphs_per_doc[test_queries]": {
+  "mean": 40.14,
+  "median": 32.0,
+  "max": 248
+ },
+ "whitespace_tokens_per_doc[test_queries]": {
+  "mean": 3553.31,
+  "median": 3060.0,
+  "max": 9883
+ },
+ "paragraphs_per_doc[precedent_candidates]": {
+  "mean": 66.97,
+  "median": 39.0,
+  "max": 3178
+ },
+ "whitespace_tokens_per_doc[precedent_candidates]": {
+  "mean": 7881.9,
+  "median": 4667.0,
+  "max": 417204
+ },
+ "relevant_per_query[train_queries]": {
+  "mean": 2.7,
+  "median": 2.0,
+  "max": 21
+ },
+ "relevant_in_pool_share[train_queries]": 1.0,
+ "queries_with_zero_relevant[train_queries]": 5,
+ "query_ids_in_pool_share[train_queries]": 0.0028,
+ "query_cites_itself[train_queries]": 0,
+ "relevant_per_query[dev_queries]": {
+  "mean": 2.72,
+  "median": 2.0,
+  "max": 21
+ },
+ "relevant_in_pool_share[dev_queries]": 1.0,
+ "queries_with_zero_relevant[dev_queries]": 1,
+ "query_ids_in_pool_share[dev_queries]": 0.0064,
+ "query_cites_itself[dev_queries]": 0,
+ "relevant_per_query[test_queries]": {
+  "mean": 2.58,
+  "median": 2.0,
+  "max": 22
+ },
+ "relevant_in_pool_share[test_queries]": 1.0,
+ "queries_with_zero_relevant[test_queries]": 1,
+ "query_ids_in_pool_share[test_queries]": 0.0048,
+ "query_cites_itself[test_queries]": 1,
+ "distinct_relevant_cited_by_a_train_query[dev_queries]": 0.8923,
+ "relevant_pairs_cited_by_a_train_query[dev_queries]": 0.9114,
+ "distinct_relevant_cited_by_a_train_query[test_queries]": 0.866,
+ "relevant_pairs_cited_by_a_train_query[test_queries]": 0.8732,
+ "gold_statute_ids_in_statute_table_share_train": 1.0,
+ "temporal_pairs[train_queries]": {
+  "both_dates_known": 11069,
+  "rel_before_query": 10825,
+  "same_day": 0,
+  "rel_after_query": 244
+ },
+ "temporal_pairs[dev_queries]": {
+  "both_dates_known": 1382,
+  "rel_before_query": 1350,
+  "same_day": 1,
+  "rel_after_query": 31
+ },
+ "temporal_pairs[test_queries]": {
+  "both_dates_known": 1354,
+  "rel_before_query": 1319,
+  "same_day": 1,
+  "rel_after_query": 34
+ },
+ "fi_empty_queries[train_queries]": 147,
+ "fi_words_per_query[train_queries]": {
+  "mean": 524.66,
+  "median": 401.0,
+  "max": 4755
+ },
+ "fi_raw_citation_patterns_queries_with_ge1[train_queries]": {
+  "AIR": 30,
+  "SCC": 61,
+  "SCR": 15,
+  "SCALE": 0,
+  "<CITATION>": 0,
+  "party_v_party": 104
+ },
+ "fi_statute_patterns_queries_with_ge1[train_queries]": {
+  "Section": 160,
+  "Sec.": 2,
+  "Art.": 21,
+  "u/s": 37
+ },
+ "fi_scrubber_removals[train_queries]": {
+  "AIR": 43,
+  "SCC": 72,
+  "SCR": 11,
+  "other_reporter": 4,
+  "party_pair_year": 10
+ },
+ "fi_empty_queries[dev_queries]": 15,
+ "fi_words_per_query[dev_queries]": {
+  "mean": 547.58,
+  "median": 400.0,
+  "max": 3395
+ },
+ "fi_raw_citation_patterns_queries_with_ge1[dev_queries]": {
+  "AIR": 4,
+  "SCC": 7,
+  "SCR": 0,
+  "SCALE": 1,
+  "<CITATION>": 0,
+  "party_v_party": 13
+ },
+ "fi_statute_patterns_queries_with_ge1[dev_queries]": {
+  "Section": 25,
+  "Sec.": 3,
+  "Art.": 4,
+  "u/s": 6
+ },
+ "fi_scrubber_removals[dev_queries]": {
+  "SCC": 12,
+  "party_pair_year": 2,
+  "SCALE": 1,
+  "AIR": 5
+ },
+ "fi_dev_patterns_remaining_after_scrub_queries_with_ge1": {
+  "AIR": 0,
+  "SCC": 1,
+  "SCR": 0,
+  "SCALE": 0,
+  "<CITATION>": 0,
+  "party_v_party": 11
+ },
+ "fi_empty_queries[test_queries]": 22,
+ "fi_words_per_query[test_queries]": {
+  "mean": 561.55,
+  "median": 439.0,
+  "max": 4365
+ },
+ "fi_raw_citation_patterns_queries_with_ge1[test_queries]": {
+  "AIR": 1,
+  "SCC": 10,
+  "SCR": 1,
+  "SCALE": 0,
+  "<CITATION>": 0,
+  "party_v_party": 16
+ },
+ "fi_statute_patterns_queries_with_ge1[test_queries]": {
+  "Section": 17,
+  "Sec.": 2,
+  "Art.": 1,
+  "u/s": 7
+ },
+ "fi_scrubber_removals[test_queries]": {
+  "SCC": 12,
+  "party_pair_year": 2,
+  "other_reporter": 1,
+  "AIR": 2,
+  "SCR": 1
+ },
+ "placeholder_docs_with_ge1[train_queries]": {
+  "all_text": {
+   "SECTION": 4991,
+   "ACT": 4982,
+   "ENTITY": 4916,
+   "PRECEDENT": 4843,
+   "CASE NUMBER": 3387,
+   "EMD": 1,
+   "MDMS": 1,
+   "VUDA": 1
+  },
+  "facts_issues": {
+   "SECTION": 4118,
+   "ACT": 4114,
+   "ENTITY": 3515,
+   "CASE NUMBER": 2423,
+   "PRECEDENT": 580,
+   "EMD": 1,
+   "RBI": 1,
+   "NMV": 1
+  }
+ },
+ "placeholder_docs_with_ge1[dev_queries]": {
+  "all_text": {
+   "SECTION": 626,
+   "ACT": 623,
+   "ENTITY": 613,
+   "PRECEDENT": 601,
+   "CASE NUMBER": 416
+  },
+  "facts_issues": {
+   "ACT": 532,
+   "SECTION": 530,
+   "ENTITY": 455,
+   "CASE NUMBER": 294,
+   "PRECEDENT": 75
+  }
+ },
+ "placeholder_docs_with_ge1[test_queries]": {
+  "all_text": {
+   "SECTION": 626,
+   "ACT": 625,
+   "ENTITY": 610,
+   "PRECEDENT": 605,
+   "CASE NUMBER": 410
+  },
+  "facts_issues": {
+   "SECTION": 519,
+   "ACT": 515,
+   "ENTITY": 449,
+   "CASE NUMBER": 297,
+   "PRECEDENT": 76
+  }
+ },
+ "placeholder_docs_with_ge1[precedent_candidates]": {
+  "all_text": {
+   "DIPAK MISRA": 6,
+   "MARKANDEY KATJU": 5,
+   "ADARSH KUMAR GOEL": 3,
+   "UDAY UMESH LALIT": 3,
+   "DALVEER BHANDARI": 3,
+   "GYAN SUDHA MISRA": 3,
+   "AFTAB ALAM": 2,
+   "RANJAN GOGOI": 2
+  },
+  "facts_issues": {
+   "RSS": 1,
+   "VHP": 1,
+   "SCOPE": 1,
+   "MVA": 1
+  }
+ },
+ "pool_titles_with_v_pair_share": 0.8797,
+ "cited_case_names_in_dev_queries": {
+  "pairs_without_usable_title": 231,
+  "queries": 627,
+  "pairs_exact[FI]": 0,
+  "pairs_both_parties[FI]": 0,
+  "pairs_exact[FI_scrubbed]": 0,
+  "pairs_both_parties[FI_scrubbed]": 0,
+  "pairs_exact[full]": 0,
+  "pairs_both_parties[full]": 0,
+  "pairs": 1473,
+  "queries_exact[FI]": 0,
+  "queries_both_parties[FI]": 0,
+  "queries_exact[FI_scrubbed]": 0,
+  "queries_both_parties[FI_scrubbed]": 0,
+  "queries_exact[full]": 0,
+  "queries_both_parties[full]": 0
+ },
+ "pool_cited_by_some_query_any_split_share": 0.9708,
+ "pool_cited_by_some_query_or_pool_doc_share": 0.9746,
+ "pool_cited_by_train_query_share": 0.9036,
+ "pool_zero_train_indegree": {
+  "n": 307,
+  "share_of_pool": 0.0964,
+  "share_relevant_to_some_dev_or_test_query": 0.6971,
+  "share_of_positive_indegree_ids_relevant_to_dev_or_test": 0.5553,
+  "zero_indegree_ids_cited_by_no_query_at_all": 93
+ },
+ "relevant_pairs_with_zero_train_indegree[dev_queries]": 0.0886,
+ "relevant_pairs_with_zero_train_indegree[test_queries]": 0.1268,
+ "train_indegree_dist_over_pool": {
+  "mean": 4.26,
+  "median": 3.0,
+  "max": 182
+ }
+}
