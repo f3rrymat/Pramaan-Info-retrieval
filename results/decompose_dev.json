@@ -1,0 +1,68 @@
+{
+ "split": "dev",
+ "n_queries": 626,
+ "queries_with_two_or_more_issue_sub_queries": 454,
+ "mean_sub_queries_per_query": 6.44,
+ "queries_without_issue_text": 57,
+ "rows": {
+  "single query (tf-idf, Facts+Issues)": {
+   "all_queries": {
+    "MAP": 0.122,
+    "MRR": 0.1934,
+    "nDCG@10": 0.1419,
+    "R@10": 0.1804,
+    "R@20": 0.238
+   },
+   "queries_with_2plus_sub_queries": {
+    "MAP": 0.1201,
+    "R@10": 0.1809
+   }
+  },
+  "RRF of issue sub-queries only": {
+   "all_queries": {
+    "MAP": 0.0814,
+    "MRR": 0.1237,
+    "nDCG@10": 0.0911,
+    "R@10": 0.1228,
+    "R@20": 0.1899
+   },
+   "queries_with_2plus_sub_queries": {
+    "MAP": 0.0762,
+    "R@10": 0.1183
+   },
+   "MAP_diff_vs_single_[mean,lo95,hi95]": [
+    -0.0407,
+    -0.055,
+    -0.0276
+   ],
+   "R@10_diff_vs_single_[mean,lo95,hi95]": [
+    -0.0575,
+    -0.0774,
+    -0.0386
+   ]
+  },
+  "RRF of issue sub-queries + the single query": {
+   "all_queries": {
+    "MAP": 0.0966,
+    "MRR": 0.1474,
+    "nDCG@10": 0.1113,
+    "R@10": 0.1522,
+    "R@20": 0.2138
+   },
+   "queries_with_2plus_sub_queries": {
+    "MAP": 0.0874,
+    "R@10": 0.1457
+   },
+   "MAP_diff_vs_single_[mean,lo95,hi95]": [
+    -0.0255,
+    -0.0389,
+    -0.0138
+   ],
+   "R@10_diff_vs_single_[mean,lo95,hi95]": [
+    -0.0282,
+    -0.0462,
+    -0.0114
+   ]
+  }
+ }
+}
