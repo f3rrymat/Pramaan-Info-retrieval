@@ -1,0 +1,28 @@
+{
+ "features": [
+  "text",
+  "neighbour",
+  "authority"
+ ],
+ "weights": {
+  "text": 0.35444,
+  "neighbour": 0.48788,
+  "authority": 0.15768
+ },
+ "first_stage": "tf-idf lnc.ltc Facts+Issues top 1000",
+ "train_queries": 4865,
+ "CV_MAP": 0.26359,
+ "fold_MAP": [
+  0.26327,
+  0.27622,
+  0.27304,
+  0.25407,
+  0.25136
+ ],
+ "nested_CV_MAP": 0.26319,
+ "neighbour": {
+  "k": 20,
+  "p": 4.0
+ },
+ "frozen": "weights chosen on train only; dev/test not read"
+}
