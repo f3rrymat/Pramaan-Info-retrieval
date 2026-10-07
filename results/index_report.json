@@ -1,0 +1,114 @@
+{
+ "n_docs": 3183,
+ "build_seconds": 16.8,
+ "process_rss_mb_before_after_build": [
+  185.8,
+  994.6
+ ],
+ "in_memory_index_mb": {
+  "facts": 11.0,
+  "issues": 6.4,
+  "arguments": 3.1,
+  "reasoning": 6.8,
+  "decision": 2.5,
+  "other": 3.9,
+  "statute_analysis": 5.7,
+  "precedent_analysis": 9.7,
+  "fi": 5.4,
+  "all": 20.6,
+  "doc_len": 0.1
+ },
+ "in_memory_index_total_mb": 75.1,
+ "persisted_sizes_bytes": {
+  "facts": {
+   "raw_int32_bytes": 7570452,
+   "gap_vbyte_bytes": 2333209,
+   "n_terms": 28019,
+   "n_postings": 465527,
+   "n_positions": 961559
+  },
+  "issues": {
+   "raw_int32_bytes": 4251340,
+   "gap_vbyte_bytes": 1278685,
+   "n_terms": 21558,
+   "n_postings": 279878,
+   "n_positions": 503079
+  },
+  "arguments": {
+   "raw_int32_bytes": 3091064,
+   "gap_vbyte_bytes": 851776,
+   "n_terms": 23114,
+   "n_postings": 386383,
+   "n_positions": 0
+  },
+  "reasoning": {
+   "raw_int32_bytes": 6873720,
+   "gap_vbyte_bytes": 1850161,
+   "n_terms": 38021,
+   "n_postings": 859215,
+   "n_positions": 0
+  },
+  "decision": {
+   "raw_int32_bytes": 2436448,
+   "gap_vbyte_bytes": 676732,
+   "n_terms": 19439,
+   "n_postings": 304556,
+   "n_positions": 0
+  },
+  "other": {
+   "raw_int32_bytes": 3789952,
+   "gap_vbyte_bytes": 1071492,
+   "n_terms": 37771,
+   "n_postings": 473744,
+   "n_positions": 0
+  },
+  "statute_analysis": {
+   "raw_int32_bytes": 5681784,
+   "gap_vbyte_bytes": 1534631,
+   "n_terms": 32185,
+   "n_postings": 710223,
+   "n_positions": 0
+  },
+  "precedent_analysis": {
+   "raw_int32_bytes": 9722232,
+   "gap_vbyte_bytes": 2612780,
+   "n_terms": 52129,
+   "n_postings": 1215279,
+   "n_positions": 0
+  },
+  "fi": {
+   "raw_int32_bytes": 5393776,
+   "gap_vbyte_bytes": 1468344,
+   "n_terms": 36248,
+   "n_postings": 674222,
+   "n_positions": 0
+  },
+  "all": {
+   "raw_int32_bytes": 20775264,
+   "gap_vbyte_bytes": 5518775,
+   "n_terms": 100166,
+   "n_postings": 2596908,
+   "n_positions": 0
+  }
+ },
+ "persisted_total": {
+  "raw_int32_mb": 66.36,
+  "gap_vbyte_mb": 18.31
+ },
+ "skip_benchmark_all_zone_df_ge_50": {
+  "n_lists": 3000,
+  "plain": {
+   "seconds": 0.0227,
+   "comparisons": 325540,
+   "result_size": 28601
+  },
+  "skip": {
+   "seconds": 0.0272,
+   "comparisons": 309058,
+   "result_size": 28601
+  },
+  "pairs": 500
+ },
+ "tokens_all_zone": 12259946,
+ "stem_cache_size": 120057
+}
