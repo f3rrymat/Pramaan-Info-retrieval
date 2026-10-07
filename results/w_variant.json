@@ -1,0 +1,94 @@
+{
+ "pairs": [
+  [
+   "facts_issues",
+   "all"
+  ],
+  [
+   "facts",
+   "facts"
+  ],
+  [
+   "issues",
+   "issues"
+  ],
+  [
+   "issues",
+   "reasoning"
+  ],
+  [
+   "facts",
+   "precedent_analysis"
+  ],
+  [
+   "facts_issues",
+   "statute_analysis"
+  ]
+ ],
+ "whole_text_weight": 1.0,
+ "additive_weights": {
+  "factsxfacts": 0.0,
+  "issuesxissues": 0.1,
+  "issuesxreasoning": 0.2,
+  "factsxprecedent_analysis": 0.0,
+  "facts_issuesxstatute_analysis": 0.1
+ },
+ "cv_heldout_MAP_per_sweep_0_is_tfidf": [
+  0.1065,
+  0.10841,
+  0.10894,
+  0.10944,
+  0.10944,
+  0.10944
+ ],
+ "chosen_sweep": 3,
+ "dev": {
+  "MAP": {
+   "tfidf": 0.122,
+   "variant": 0.1157,
+   "diff": -0.0064,
+   "ci95": [
+    -0.0145,
+    0.001
+   ]
+  },
+  "MRR": {
+   "tfidf": 0.1934,
+   "variant": 0.1821,
+   "diff": -0.0113,
+   "ci95": [
+    -0.0236,
+    0.0
+   ]
+  },
+  "nDCG@10": {
+   "tfidf": 0.1419,
+   "variant": 0.1374,
+   "diff": -0.0044,
+   "ci95": [
+    -0.0136,
+    0.0045
+   ]
+  },
+  "R@10": {
+   "tfidf": 0.1804,
+   "variant": 0.1852,
+   "diff": 0.0048,
+   "ci95": [
+    -0.0095,
+    0.0192
+   ]
+  },
+  "R@20": {
+   "tfidf": 0.238,
+   "variant": 0.2587,
+   "diff": 0.0207,
+   "ci95": [
+    0.0038,
+    0.0383
+   ]
+  }
+ },
+ "survives_D18_criterion": false,
+ "train_queries": 1500
+}

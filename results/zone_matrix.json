@@ -1,0 +1,207 @@
+{
+ "rows_query_view": [
+  "facts",
+  "issues",
+  "facts_issues"
+ ],
+ "cols_pool_zone": [
+  "facts",
+  "issues",
+  "arguments",
+  "reasoning",
+  "decision",
+  "statute_analysis",
+  "precedent_analysis",
+  "all"
+ ],
+ "W": {
+  "facts": {
+   "facts": 0.0,
+   "issues": 0.0,
+   "arguments": 0.0,
+   "reasoning": 0.0,
+   "decision": 0.0,
+   "statute_analysis": 0.0,
+   "precedent_analysis": 0.0,
+   "all": 0.0
+  },
+  "issues": {
+   "facts": 0.0,
+   "issues": 0.0,
+   "arguments": 0.0,
+   "reasoning": 0.0,
+   "decision": 0.0,
+   "statute_analysis": 0.0,
+   "precedent_analysis": 0.0,
+   "all": 0.0
+  },
+  "facts_issues": {
+   "facts": 0.0,
+   "issues": 0.0,
+   "arguments": 0.0,
+   "reasoning": 0.0,
+   "decision": 0.0,
+   "statute_analysis": 0.0,
+   "precedent_analysis": 0.0,
+   "all": 1.0
+  }
+ },
+ "first_stage": "tf-idf lnc.ltc, Facts+Issues query vs whole text",
+ "N_candidates": 1000,
+ "train_queries": 1500,
+ "learner": "coordinate ascent on MAP over first-stage candidates, weights >= 0, sum 1",
+ "chosen_sweep_by_dev": 0,
+ "W_last_sweep_not_selected": {
+  "facts": {
+   "facts": 0.0,
+   "issues": 0.04873,
+   "arguments": 0.0,
+   "reasoning": 0.0,
+   "decision": 0.0,
+   "statute_analysis": 0.01927,
+   "precedent_analysis": 0.02023,
+   "all": 0.04871
+  },
+  "issues": {
+   "facts": 0.05,
+   "issues": 0.0,
+   "arguments": 0.0,
+   "reasoning": 0.09813,
+   "decision": 0.02944,
+   "statute_analysis": 0.05001,
+   "precedent_analysis": 0.0,
+   "all": 0.0
+  },
+  "facts_issues": {
+   "facts": 0.0,
+   "issues": 0.0,
+   "arguments": 0.0,
+   "reasoning": 0.0,
+   "decision": 0.0,
+   "statute_analysis": 0.0357,
+   "precedent_analysis": 0.0,
+   "all": 0.59979
+  }
+ },
+ "note": "dev MAP was highest at sweep 0 (the tf-idf baseline), so W above is the one-hot baseline; W_last_sweep_not_selected is the fully trained matrix (train MAP up, dev MAP down).",
+ "history_per_N": {
+  "300": [
+   {
+    "sweep": 0,
+    "train_MAP": 0.10575,
+    "dev_MAP": 0.12093
+   },
+   {
+    "sweep": 1,
+    "train_MAP": 0.11265,
+    "dev_MAP": 0.11873
+   },
+   {
+    "sweep": 2,
+    "train_MAP": 0.11403,
+    "dev_MAP": 0.11632
+   },
+   {
+    "sweep": 3,
+    "train_MAP": 0.11455,
+    "dev_MAP": 0.11681
+   },
+   {
+    "sweep": 4,
+    "train_MAP": 0.11455,
+    "dev_MAP": 0.11682
+   },
+   {
+    "sweep": 5,
+    "train_MAP": 0.11456,
+    "dev_MAP": 0.11682
+   },
+   {
+    "sweep": 6,
+    "train_MAP": 0.11456,
+    "dev_MAP": 0.11682
+   }
+  ],
+  "500": [
+   {
+    "sweep": 0,
+    "train_MAP": 0.10622,
+    "dev_MAP": 0.12147
+   },
+   {
+    "sweep": 1,
+    "train_MAP": 0.11312,
+    "dev_MAP": 0.11933
+   },
+   {
+    "sweep": 2,
+    "train_MAP": 0.11448,
+    "dev_MAP": 0.11689
+   },
+   {
+    "sweep": 3,
+    "train_MAP": 0.115,
+    "dev_MAP": 0.11739
+   },
+   {
+    "sweep": 4,
+    "train_MAP": 0.115,
+    "dev_MAP": 0.1174
+   },
+   {
+    "sweep": 5,
+    "train_MAP": 0.11501,
+    "dev_MAP": 0.1174
+   },
+   {
+    "sweep": 6,
+    "train_MAP": 0.11501,
+    "dev_MAP": 0.1174
+   }
+  ],
+  "1000": [
+   {
+    "sweep": 0,
+    "train_MAP": 0.1065,
+    "dev_MAP": 0.12179
+   },
+   {
+    "sweep": 1,
+    "train_MAP": 0.11339,
+    "dev_MAP": 0.11967
+   },
+   {
+    "sweep": 2,
+    "train_MAP": 0.11473,
+    "dev_MAP": 0.11722
+   },
+   {
+    "sweep": 3,
+    "train_MAP": 0.11526,
+    "dev_MAP": 0.11772
+   },
+   {
+    "sweep": 4,
+    "train_MAP": 0.11526,
+    "dev_MAP": 0.11773
+   },
+   {
+    "sweep": 5,
+    "train_MAP": 0.11527,
+    "dev_MAP": 0.11772
+   },
+   {
+    "sweep": 6,
+    "train_MAP": 0.11527,
+    "dev_MAP": 0.11772
+   }
+  ]
+ },
+ "dev_first_stage_recall_at_N": {
+  "100": 0.4893,
+  "200": 0.585,
+  "300": 0.6478,
+  "500": 0.7504,
+  "1000": 0.8434
+ }
+}
