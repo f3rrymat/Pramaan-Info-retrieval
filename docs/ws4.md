@@ -1,0 +1,3 @@
+### WS4: evaluation, efficiency, release assets
+- **What it does.** Metrics (P, R, F1 at 5, 10, 20, MAP, MRR, nDCG, 11-point interpolated PR, macro and micro averages) with paired bootstrap intervals; one runner for dev and test (the test split needs `--final` and runs once, guarded by `results/final.lock`); a leakage audit (no leave-one-out, dev links in the authority graph, citation scrubbing off, temporal filter); an efficiency study (heap top-K, index elimination, champion lists, authority tiers, cluster pruning) with latency and candidates scored; figures and tables for the report.
+- **Run.** `make eval` (dev only), `python scripts/make_report_assets.py`, `python scripts/make_readme.py`.
