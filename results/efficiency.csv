@@ -1,0 +1,26 @@
+method,MAP,MAP_retained,R@10,R@10_retained,R@20,family,leaders,mean_candidates_scored,mean_postings_processed,median_ms,p95_ms
+exhaustive tf-idf,0.122,1.0,0.1804,1.0,0.238,baseline,,3101.3,169957.5,0.69,1.666
+"elimination idf>=1.0, >= 1 terms",0.078,0.6393,0.1277,0.7079,0.1845,index elimination,,1383.4,3226.0,0.154,0.461
+"elimination idf>=1.0, >= 2 terms",0.0758,0.6213,0.1283,0.7112,0.1811,index elimination,,686.4,2528.9,0.16,0.475
+"elimination idf>=1.0, >= 3 terms",0.0732,0.6,0.12,0.6652,0.1742,index elimination,,382.6,1921.3,0.156,0.487
+"elimination idf>=1.5, >= 1 terms",0.054,0.4426,0.0846,0.469,0.1154,index elimination,,470.7,2989.7,0.078,0.251
+"elimination idf>=1.5, >= 2 terms",0.049,0.4016,0.0777,0.4307,0.0978,index elimination,,196.2,2715.2,0.074,0.257
+"elimination idf>=1.5, >= 3 terms",0.0403,0.3303,0.0615,0.3409,0.0769,index elimination,,144.5,2611.8,0.07,0.259
+"elimination idf>=2.0, >= 1 terms",0.0436,0.3574,0.0718,0.398,0.0909,index elimination,,328.8,7912.5,0.047,0.288
+"elimination idf>=2.0, >= 2 terms",0.035,0.2869,0.0545,0.3021,0.0676,index elimination,,271.1,7854.8,0.043,0.283
+"elimination idf>=2.0, >= 3 terms",0.0265,0.2172,0.0396,0.2195,0.0462,index elimination,,266.5,7845.7,0.041,0.283
+champion lists r=50,0.1216,0.9967,0.1801,0.9983,0.2428,champion lists,,1726.2,101559.2,2.11,4.579
+champion lists r=100,0.1218,0.9984,0.1806,1.0011,0.238,champion lists,,2355.4,139527.2,1.854,3.431
+champion lists r=200,0.122,1.0,0.1804,1.0,0.238,champion lists,,2815.3,162385.0,1.365,3.005
+champion lists r=500,0.122,1.0,0.1804,1.0,0.238,champion lists,,3050.5,169496.4,1.261,3.109
+tiers fall-through 20% -> 50% -> 100%,0.0669,0.5484,0.116,0.643,0.1713,authority tiers,,620.8,36638.0,1.741,4.317
+tier 1 only (top 20% by authority),0.0669,0.5484,0.116,0.643,0.1713,authority tiers,,620.8,36638.0,1.743,4.316
+tiers 1-2 only (top 50% by authority),0.0735,0.6025,0.1172,0.6497,0.1893,authority tiers,,1551.4,88819.2,2.275,5.674
+exhaustive neighbour search (Config A),0.2063,1.0,0.2844,1.0,0.3582,cluster pruning,,5017.0,5017.0,1.752,2.665
+exhaustive neighbour search (neighbour votes alone),0.1938,1.0,0.2651,1.0,0.3189,cluster pruning,,5017.0,5017.0,1.752,2.665
+cluster pruning b=1 (Config A),0.1659,0.8042,0.2487,0.8745,0.3247,cluster pruning,71,215.5,215.5,0.627,1.418
+cluster pruning b=1 (neighbour votes alone),0.1422,0.7337,0.1989,0.7503,0.2408,cluster pruning,,215.5,215.5,0.627,1.418
+cluster pruning b=2 (Config A),0.1901,0.9215,0.2746,0.9655,0.3531,cluster pruning,71,346.0,346.0,0.672,1.506
+cluster pruning b=2 (neighbour votes alone),0.1744,0.8999,0.2411,0.9095,0.2834,cluster pruning,,346.0,346.0,0.672,1.506
+cluster pruning b=3 (Config A),0.1954,0.9472,0.2838,0.9979,0.3534,cluster pruning,71,475.8,475.8,0.761,1.666
+cluster pruning b=3 (neighbour votes alone),0.1809,0.9334,0.2499,0.9427,0.2935,cluster pruning,,475.8,475.8,0.761,1.666
