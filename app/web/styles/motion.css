@@ -1,0 +1,89 @@
+/* Motion layer (D45): transforms and opacity only, tokens only. Everything here is switched off when the OS asks for
+   reduced motion (base.css) or when Settings > Reduce motion is on (data-motion="reduce" on <html>, mirrored below). */
+:root[data-motion="reduce"] { --d-fast: 0.01ms; --d-med: 0.01ms; --d-slow: 0.01ms; }
+:root[data-motion="reduce"] *, :root[data-motion="reduce"] *::before, :root[data-motion="reduce"] *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; animation-delay: 0ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+
+/* haptics-style feedback: a small press and a focus ring that settles in (no sound, no vibration) */
+.btn:active:not([disabled]), button.chip:active, .seg button:active, .palette-item:active, .role-card:active { transform: scale(.97); }
+button.chip, .seg button { transition: background var(--d-fast), color var(--d-fast), transform var(--d-fast) var(--ease); }
+.btn:focus-visible, button.chip:focus-visible, .seg button:focus-visible, .nav-link:focus-visible, .input:focus-visible, .textarea:focus-visible, .as-mic:focus-visible, .as-fab:focus-visible, .palette-item:focus-visible { animation: focus-in var(--d-med) var(--ease); }
+@keyframes focus-in { from { box-shadow: 0 0 0 6px color-mix(in srgb, var(--brand) 0%, transparent); } }
+
+/* shared element ghost (result card -> case drawer) */
+.morph-ghost { position: fixed; z-index: 205; pointer-events: none; background: var(--surface); border: 1px solid var(--border-strong); border-radius: var(--r-lg); box-shadow: var(--shadow-3); transform-origin: 0 0; will-change: transform, opacity; }
+
+/* result cards: lift on hover, keyed cards glide (FLIP in ui/motion.js) */
+.result { will-change: auto; }
+.result:hover { transform: translateY(-1px); }
+.result .rank-num { display: inline-block; }
+.result { animation: none; }                       /* entrance and reordering are driven by ui/motion.js (FLIP) */
+.refreshing .result { opacity: .55; transition: opacity var(--d-med); }
+
+/* KPI cards: role accent rule and an explain button */
+.kpi { position: relative; overflow: hidden; }
+.kpi::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: linear-gradient(90deg, var(--role), color-mix(in srgb, var(--role) 0%, transparent)); opacity: .9; }
+.kpi-top { display: flex; align-items: flex-start; gap: var(--s-2); justify-content: space-between; }
+.explain-btn { color: var(--muted); margin: -6px -6px 0 0; } .explain-btn:hover { color: var(--role); }
+.explain-link { color: var(--role); }
+
+/* charts: draw-in and linked hover across charts, tables and legends */
+.chart .bar.grow { transform-box: fill-box; transform-origin: left center; animation: bar-grow var(--d-slow) var(--ease) both; }
+.chart .bar.grow.neg { transform-origin: right center; }
+@keyframes bar-grow { from { transform: scaleX(0); } }
+.chart path.draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 900ms var(--ease) forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+.chart .dot-in { animation: fade var(--d-slow) var(--ease) both; }
+.chart [data-series], .table tr[data-series], .legend [data-series] { transition: opacity var(--d-fast); }
+.linking .chart [data-series]:not(.linked), .linking .legend [data-series]:not(.linked) { opacity: .22; }
+.linking .table tr[data-series]:not(.linked) { opacity: .5; }
+.linking .table tr.linked td { background: var(--brand-soft); }
+.linking .chart path.linked { stroke-width: 3.4; }
+.linking .chart rect.linked { stroke: var(--text); stroke-width: 1; }
+.linking .kpi.linked { border-color: var(--role); }
+.legend [data-series] { cursor: default; border-radius: var(--r-sm); }
+.chart text.series-label { cursor: default; }
+
+/* skeletons for charts */
+.skel-chart { border-radius: var(--r-md); }
+
+/* toasts: action (Undo) and a draining timer */
+.toast { position: relative; overflow: hidden; align-items: center; }
+.toast.leaving { animation: toast-out var(--d-med) var(--ease) forwards; }
+@keyframes toast-out { to { opacity: 0; transform: translateX(16px); } }
+.toast-action { background: none; border: 1px solid currentColor; color: inherit; border-radius: var(--r-sm); padding: 2px 10px; font: inherit; font-weight: 700; cursor: pointer; }
+.toast-action:hover { background: color-mix(in srgb, currentColor 14%, transparent); }
+.toast-timer { position: absolute; left: 0; bottom: 0; height: 3px; width: 100%; background: currentColor; opacity: .35; transform-origin: left; animation: drain linear forwards; }
+@keyframes drain { to { transform: scaleX(0); } }
+
+/* live pipeline strip (Search) */
+.pipe-strip { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; padding: var(--s-3); }
+.pipe-stage { position: relative; display: flex; flex-direction: column; gap: 2px; padding: 8px 10px 10px; border-radius: var(--r-md); background: var(--surface-2); border: 1px solid var(--border); min-width: 0; overflow: hidden; transition: background var(--d-med), border-color var(--d-med); }
+.pipe-stage b { font-size: var(--t-xs); color: var(--text-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pipe-stage .ms { font-size: var(--t-xs); font-variant-numeric: tabular-nums; color: var(--muted); white-space: nowrap; }
+.pipe-stage::after { content: ""; position: absolute; left: 0; bottom: 0; height: 3px; width: 100%; background: var(--pc, var(--brand)); transform-origin: left; transform: scaleX(var(--pw, 0)); transition: transform var(--d-slow) var(--ease); }
+.pipe-stage.active { border-color: var(--pc, var(--brand)); background: color-mix(in srgb, var(--pc, var(--brand)) 12%, var(--surface)); }
+.pipe-stage.active::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--pc, var(--brand)) 22%, transparent), transparent); animation: sweep 900ms linear infinite; }
+.pipe-stage.done { border-color: color-mix(in srgb, var(--pc, var(--brand)) 45%, var(--border)); }
+.pipe-stage.done b { color: var(--text); }
+.pipe-stage.skipped { opacity: .6; }
+.pipe-stage.shared { border-style: dashed; }
+@keyframes sweep { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+.pipe-foot { display: flex; gap: var(--s-3); flex-wrap: wrap; align-items: center; padding: 0 var(--s-3) var(--s-3); }
+@media (max-width: 640px) { .pipe-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* neighbour graph physics: draggable nodes */
+.graph .node { cursor: grab; } .graph .node.dragging { cursor: grabbing; } .graph { touch-action: none; }
+
+/* palette fuzzy highlights */
+.palette-item mark { background: none; color: var(--brand); font-weight: 750; }
+.palette-item .pal-sub { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+
+/* breadcrumbs: keep the section names whole; only the last item may shorten */
+.crumbs > * { flex: none; } .crumbs > b:last-of-type { flex: 0 1 auto; min-width: 0; }
+
+/* role accents in dashboards: the active tab and card headings carry the role colour; zone colours stay as defined in tokens.css */
+.tabs button[aria-selected="true"] { color: var(--role); border-bottom-color: var(--role); }
+.card-head h2::before, .card > h2:first-child::before { content: ""; display: inline-block; width: 4px; height: .9em; margin-right: 8px; border-radius: 2px; background: var(--role); vertical-align: -1px; }
+
+/* drawer header: keep the title on one line and let the actions wrap under it */
+.drawer-head { flex-wrap: wrap; } .drawer-head h2 { white-space: nowrap; }

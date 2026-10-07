@@ -1,0 +1,80 @@
+/* Design tokens: the only place colours, type, spacing, radii, shadows and motion are defined. Light and dark from one file.
+   Contrast: text on surface >= 4.5:1 (AA) in both themes. Zone palette and role accents are identical wherever they appear. */
+@font-face { font-family: "Inter"; src: url("/fonts/inter-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("/fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2"); font-weight: 100 800; font-display: swap; }
+
+:root, [data-theme="light"] {
+  color-scheme: light;
+  /* surfaces and text */
+  --bg: #f5f6f8; --surface: #ffffff; --surface-2: #eef0f4; --surface-3: #e3e6ec; --overlay: rgb(15 23 42 / .48);
+  --text: #121826; --text-2: #3d4657; --muted: #586174; --border: #d9dde5; --border-strong: #b8bfcc;
+  /* brand and states */
+  --brand: #2845c8; --brand-hover: #1f37a3; --brand-soft: #e6ebfc; --on-brand: #ffffff;
+  --ok: #17703f; --ok-soft: #e1f4e8; --warn: #915a00; --warn-soft: #fcefd2; --err: #b3261e; --err-soft: #fbe5e3; --info: #0b6a8f; --info-soft: #dff1f8;
+  /* role accents (sidebar highlight, role badge, top rule) */
+  --on-err: #ffffff; --on-ok: #ffffff;
+  --role-researcher: #0b7a6e; --role-analyst: #6b3fd4; --role-admin: #a4540b;
+  --role: var(--role-researcher); --role-soft: color-mix(in srgb, var(--role) 12%, var(--surface));
+  /* zone palette: facts, issues, arguments, reasoning, decision, statute analysis, precedent analysis */
+  --z-facts: #2563eb; --z-issues: #c2570c; --z-arguments: #7c3aed; --z-reasoning: #0f8a5f; --z-decision: #c92a2a; --z-statute_analysis: #0a7d9c; --z-precedent_analysis: #b0239a; --z-other: #6b7280;
+  /* score-component palette (stacked bars) */
+  --f-text: #4863e0; --f-neighbour: #12a594; --f-authority: #e09210; --f-recency: #d6407e; --f-court: #8a94a6; --f-statute: #0a7d9c;
+  /* chart neutrals */
+  --grid: #e2e5eb; --bar: var(--brand); --bar-muted: #9aa5bb;
+  /* type */
+  --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --t-xs: .75rem; --t-sm: .8125rem; --t-base: .9375rem; --t-md: 1.0625rem; --t-lg: 1.25rem; --t-xl: 1.625rem; --t-2xl: 2.125rem; --t-3xl: 2.75rem;
+  --lh-tight: 1.2; --lh: 1.55;
+  /* space (4px grid, scaled by density) */
+  --density: 1;
+  --s-1: calc(4px * var(--density)); --s-2: calc(8px * var(--density)); --s-3: calc(12px * var(--density)); --s-4: calc(16px * var(--density));
+  --s-5: calc(24px * var(--density)); --s-6: calc(32px * var(--density)); --s-7: calc(48px * var(--density)); --s-8: calc(64px * var(--density));
+  --r-sm: 6px; --r-md: 10px; --r-lg: 14px; --r-pill: 999px;
+  --shadow-1: 0 1px 2px rgb(16 24 40 / .06); --shadow-2: 0 2px 6px rgb(16 24 40 / .07), 0 1px 2px rgb(16 24 40 / .05); --shadow-3: 0 12px 32px rgb(16 24 40 / .14), 0 2px 6px rgb(16 24 40 / .08);
+  --focus: 0 0 0 2px var(--surface), 0 0 0 4px var(--brand);
+  /* motion */
+  --d-fast: 120ms; --d-med: 220ms; --d-slow: 420ms; --ease: cubic-bezier(.2, .7, .2, 1);
+  /* layout */
+  --sidebar-w: 248px; --sidebar-w-collapsed: 68px; --topbar-h: 56px; --content-max: 1280px;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0d1017; --surface: #151a23; --surface-2: #1c222d; --surface-3: #262d3a; --overlay: rgb(0 0 0 / .62);
+  --text: #e9ecf2; --text-2: #c3c9d6; --muted: #98a1b3; --border: #2a3140; --border-strong: #3d465a;
+  --brand: #8ea2ff; --brand-hover: #a9b7ff; --brand-soft: #1e2850; --on-brand: #0d1017;
+  --ok: #5fcf8e; --ok-soft: #12301f; --warn: #f0b84f; --warn-soft: #382a0c; --err: #ff8a80; --err-soft: #3d1a17; --info: #5ec3e6; --info-soft: #0f2c38;
+  --on-err: #2a0a07; --on-ok: #08210f;
+  --role-researcher: #3fd0bd; --role-analyst: #b393ff; --role-admin: #f0a24f;
+  --z-facts: #6ea0ff; --z-issues: #f2a15a; --z-arguments: #b79bff; --z-reasoning: #4fd0a0; --z-decision: #ff8a80; --z-statute_analysis: #4fc6e6; --z-precedent_analysis: #e77ad6; --z-other: #9aa3b4;
+  --f-text: #8ea2ff; --f-neighbour: #4fd0bf; --f-authority: #f0b84f; --f-recency: #ff7fae; --f-court: #8d97ab; --f-statute: #4fc6e6;
+  --grid: #262d3a; --bar: var(--brand); --bar-muted: #566179;
+  --shadow-1: 0 1px 2px rgb(0 0 0 / .4); --shadow-2: 0 2px 8px rgb(0 0 0 / .45); --shadow-3: 0 14px 36px rgb(0 0 0 / .6);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --bg: #0d1017; --surface: #151a23; --surface-2: #1c222d; --surface-3: #262d3a; --overlay: rgb(0 0 0 / .62);
+    --text: #e9ecf2; --text-2: #c3c9d6; --muted: #98a1b3; --border: #2a3140; --border-strong: #3d465a;
+    --brand: #8ea2ff; --brand-hover: #a9b7ff; --brand-soft: #1e2850; --on-brand: #0d1017;
+    --ok: #5fcf8e; --ok-soft: #12301f; --warn: #f0b84f; --warn-soft: #382a0c; --err: #ff8a80; --err-soft: #3d1a17; --info: #5ec3e6; --info-soft: #0f2c38;
+    --on-err: #2a0a07; --on-ok: #08210f;
+    --role-researcher: #3fd0bd; --role-analyst: #b393ff; --role-admin: #f0a24f;
+    --z-facts: #6ea0ff; --z-issues: #f2a15a; --z-arguments: #b79bff; --z-reasoning: #4fd0a0; --z-decision: #ff8a80; --z-statute_analysis: #4fc6e6; --z-precedent_analysis: #e77ad6; --z-other: #9aa3b4;
+    --f-text: #8ea2ff; --f-neighbour: #4fd0bf; --f-authority: #f0b84f; --f-recency: #ff7fae; --f-court: #8d97ab; --f-statute: #4fc6e6;
+    --grid: #262d3a; --bar: var(--brand); --bar-muted: #566179;
+    --shadow-1: 0 1px 2px rgb(0 0 0 / .4); --shadow-2: 0 2px 8px rgb(0 0 0 / .45); --shadow-3: 0 14px 36px rgb(0 0 0 / .6);
+  }
+}
+
+:root[data-role="researcher"] { --role: var(--role-researcher); }
+:root[data-role="analyst"] { --role: var(--role-analyst); }
+:root[data-role="admin"] { --role: var(--role-admin); }
+:root[data-density="compact"] { --density: .82; --t-base: .875rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --d-fast: 0.01ms; --d-med: 0.01ms; --d-slow: 0.01ms; }
+}
+
+.theme-box { background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: var(--r-lg); padding: var(--s-5); }
