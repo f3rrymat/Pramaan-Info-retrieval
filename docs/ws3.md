@@ -1,0 +1,4 @@
+### WS3: ranking
+- **What it does.** tf-idf (SMART lnc.ltc) and BM25 baselines; a leak-safe authority prior (log in-degree from pool and TRAIN edges with leave-one-out); N7 "citing-case neighbours" (cosine nearest TRAIN queries vote for the precedents they cite, a combination of known ideas: citation collaborative filtering and nearest-neighbour citation retrieval); a net score with weights from random search and 5-fold cross-validation on train; **Config A** = text + neighbour + authority over a tf-idf top-1000 first stage, optionally with a temporal filter. Explanations carry ids and numbers only.
+- **Negative or marginal results kept.** The learned zone-pair matrix and its regularised variant did not beat tf-idf on dev; the statute channel adds almost nothing; a union first stage did not help.
+- **Run.** `python scripts/run_b1.py`, `python scripts/run_b2.py`, `python scripts/freeze_config_a.py`, `python scripts/run_w_variant.py`.

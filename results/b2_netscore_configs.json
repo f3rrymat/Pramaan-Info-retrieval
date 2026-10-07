@@ -1,0 +1,60 @@
+{
+ "A_best_cv": {
+  "w": {
+   "text": 0.39951,
+   "statute": 0.06655,
+   "authority": 0.16068,
+   "neighbour": 0.34982,
+   "recency": 0.00357,
+   "court": 0.01987
+  },
+  "tau": 20.0,
+  "CV_MAP": 0.27129,
+  "fold_MAP": [
+   0.27145,
+   0.2849,
+   0.28015,
+   0.25836,
+   0.2616
+  ]
+ },
+ "B_text_weight_ge_0.5": {
+  "w": {
+   "text": 0.52462,
+   "statute": 0.06058,
+   "authority": 0.06979,
+   "neighbour": 0.15612,
+   "recency": 0.05748,
+   "court": 0.13142
+  },
+  "tau": 20.0,
+  "CV_MAP": 0.20239,
+  "fold_MAP": [
+   0.20832,
+   0.2069,
+   0.20046,
+   0.19652,
+   0.19973
+  ]
+ },
+ "C_no_neighbour": {
+  "w": {
+   "text": 0.62366,
+   "statute": 0.10869,
+   "authority": 0.16002,
+   "recency": 0.04035,
+   "court": 0.06728
+  },
+  "tau": 5.0,
+  "CV_MAP": 0.12394,
+  "fold_MAP": [
+   0.13034,
+   0.13022,
+   0.11918,
+   0.11737,
+   0.12259
+  ]
+ },
+ "nested_CV_MAP_all_features": 0.27129,
+ "nested_CV_MAP_no_neighbour": 0.12394
+}
